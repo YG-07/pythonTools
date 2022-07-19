@@ -1,0 +1,13 @@
+pyinstaller打包
+
+-F demo.py
+只生成exe文件
+
+-w
+运行时不显示控制台
+
+-i demo.ico
+添加图标
+
+-n demoNew.exe
+打包exe添加新的名字

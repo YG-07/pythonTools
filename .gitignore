@@ -1,0 +1,32 @@
+.DS_Store
+node_modules/
+unpackage/
+dist/
+build
+dist
+*.spec
+__pycache__
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+db.json
+
+# Editor directories and files
+.hbuilderx
+.project
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw
+.prettierrc
+
+
+.editorconfig
