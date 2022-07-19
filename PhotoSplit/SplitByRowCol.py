@@ -11,30 +11,47 @@ def get_time():
 
 # 处理输入
 def cut_img_input():
-    # if len(sys.argv) < 2:
-    #     img_name = input('输入文件名：')
-    # else:
-    #     img_name = sys.argv[1]
-    img_name = input('输入文件名：')
-    if img_name == '' or not os.path.isfile(img_name):
-        input('文件名无效！')
-        exit(0)
-    row = input('输入纵向分割数量(行数)：')
-    col = input('输入横向分割数量(列数)：')
-    if row == '':
-        row = 1
-    else:
-        row = int(row)
-    if col == '':
-        col = 1
-    else:
-        col = int(col)
-    return img_name, row, col
+    flag = True
+    while True:
+        if len(sys.argv) < 2 or not flag:
+            img_path = input('输入图片路径：')
+            img_path = img_path.replace('\"', '')
+        else:
+            img_path = sys.argv[1]
+        if img_path == '' or not os.path.isfile(img_path):
+            num = input('文件名无效！输入0退出')
+            flag = False
+            if num == '0':
+                exit(0)
+        else:
+            flag = True
+            break
+    while True:
+        if len(sys.argv) < 3 or not flag:
+            row = input('输入纵向分割数量(行数)：')
+        else:
+            row = int(sys.argv[2])
+        if row.isdigit():
+            row = int(row)
+            flag = True
+            break
+    while True:
+        if len(sys.argv) < 4 or not flag:
+            col = input('输入横向分割数量(列数)：')
+        else:
+            col = int(sys.argv[3])
+        if col.isdigit():
+            col = int(col)
+            flag = True
+            break
+    img_path = img_path.replace('/', '\\')
+    img_name = img_path.split('\\')[-1]
+    return img_path, img_name, row, col
 
 
 def cut_img():
-    file_name, row_num, col_num = cut_img_input()
-    img = Image.open(file_name)
+    file_path, file_name, row_num, col_num = cut_img_input()
+    img = Image.open(file_path)
     [name, ext] = file_name.split('.')
     width, height = img.size
     w = width//col_num
@@ -52,6 +69,4 @@ def cut_img():
 
 
 if __name__ == '__main__':
-    path = os.path.dirname(__file__)
-    os.chdir(path)
     cut_img()
