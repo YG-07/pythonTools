@@ -11,10 +11,11 @@ def get_time():
 
 # 处理输入
 def cut_img_input():
-    if len(sys.argv) < 2:
-        img_name = input('输入文件名：')
-    else:
-        img_name = sys.argv[1]
+    # if len(sys.argv) < 2:
+    #     img_name = input('输入文件名：')
+    # else:
+    #     img_name = sys.argv[1]
+    img_name = input('输入文件名：')
     if img_name == '' or not os.path.isfile(img_name):
         input('文件名无效！')
         exit(0)
