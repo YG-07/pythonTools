@@ -7,6 +7,7 @@ import time
 import shutil
 from threading import Thread
 
+# 打包指令 pyinstaller -F Thumbnail.py --hidden-import=opencv-python,numpy -i img.ico
 # 需要手动转换的文件列表
 copy_arr = []
 # 压缩后的宽高
@@ -154,7 +155,6 @@ def input_yes_no(msg):
         flag = input(msg)
 
 
-# 打包指令 pyinstaller -F Thumbnail.py --hidden-import=opencv-python,numpy -i img.ico
 if __name__ == '__main__':
     dir_path = deal_input()
     start_thumb_img(dir_path)

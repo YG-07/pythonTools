@@ -2,6 +2,7 @@ from PIL import Image
 import os
 import sys
 import time
+# pyinstaller -F SplitByRowCol.py -i split.ico --hidden-import=Pillow
 
 
 def get_time():
@@ -70,3 +71,4 @@ def cut_img():
 
 if __name__ == '__main__':
     cut_img()
+
