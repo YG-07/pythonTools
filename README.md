@@ -2,9 +2,10 @@
 
 ### 目录
 1. [SplitByRowCol(图片分割[按行列数])](#SplitByRowCol)  
-2. [SplitByPx(图片分割[按固定尺寸])](#SplitByPx) 
-3. [Thumbnail（生成缩略图）](#Thumbnail)
-4. [ImageDownload（图片批量下载）](#ImageDownload)
+2. [SplitByPx(图片分割[按固定尺寸])](#SplitByPx)  
+3. [Thumbnail（生成缩略图）](#Thumbnail)  
+4. [ImageDownload（图片批量下载）](#ImageDownload)  
+5. [Rename（批量重命名）](#Rename)  
 
 
 ### 具体说明
@@ -35,4 +36,21 @@
 >1.输入url和name保存TXT文件路径，注：`一行一个记录，第一行可以使用[start][end]给之后的每一行拼接前缀或后缀`  
 >2.输入保存的文件夹名、图片格式  
 >3.输入是否需要必须包含或过滤的字符，等待下载 
+  
+<a name="ImageDownload"></a>  
+#### 5.Rename（批量重命名）
+
+>1.在程序同级目录创建`config.txt`文件, 参数如下：  
+| 参数   | 默认值 | 可选值                                    | 说明                                                          |
+|--------|--------|-------------------------------------------|---------------------------------------------------------------|
+| option | -      | number,datetime,size,start,end,mid        | 重命名的方式                                                  |
+|        |        | number时，[,1 1 1 3 x,1,5...]             | (开始数，步长，增减顺序， 不足几位，不足前补充x字符)          |
+|        |        | datetime时,[0 %Y-%m-%d-%H-%M-%S, 1 10...] | 日期时间格式化的参数(日期字符串/时间戳， 格式/保留位数(3-13)) |
+| data   |        | size:[,KB,MB 1...]                        | （单位，是否显示单位）                                        |
+|        |        | end:[xxxx]                                | 后缀字符串                                                    |
+|        |        | start:[xxxx]                              | 前缀字符串                                                    |
+|        |        | mid:[xxxx,xxxx 5...]                      | 中间字符串（插入字符串，第几个字符后）                        |
+| copy   | 0      | 1 D:\xxxx                                 | 是否另存为                                                    |
+| origin | 0      | 1                                         | 是否保留原名称                                                |
+>2.运行本程序即可  
   
